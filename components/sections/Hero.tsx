@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 const Hero = () => {
@@ -55,14 +54,7 @@ const Hero = () => {
                             <div className="absolute inset-0 bg-primary/10 rounded-2xl -rotate-6 transform"></div>
                             <div className="absolute inset-0 bg-dark-card/30 backdrop-blur-sm rounded-2xl rotate-3 transform"></div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                                {/*<Image*/}
-                                {/*    src="/images/hero-image.png"*/}
-                                {/*    alt="Suruhsuruh - Jasa Pengerjaan Tugas dan Perbaikan Elektronik"*/}
-                                {/*    width={500}*/}
-                                {/*    height={400}*/}
-                                {/*    className="rounded-xl object-cover"*/}
-                                {/*    priority*/}
-                                {/*/>*/}
+
                             </div>
                             <div className="absolute -bottom-6 -right-6 bg-dark-card rounded-lg shadow-lg p-4 flex items-center space-x-3 animate-bounce-slow">
                                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">

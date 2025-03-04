@@ -1,52 +1,36 @@
-import { Testimonial } from '@/types';
-import Image from 'next/image';
+// components/ui/TestimonialCard.tsx
+import React from 'react';
 
 interface TestimonialCardProps {
-    testimonial: Testimonial;
+    name: string;
+    role: string;
+    image: string;
+    testimonial: string;
 }
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ name, role, image, testimonial }) => {
     return (
-        <div className="bg-dark-card rounded-xl p-6 shadow-card hover:shadow-lg transition-shadow border border-dark-border/30">
-            {/* Star Rating */}
-            <div className="flex mb-4">
-                {Array.from({ length: 5 }).map((_, i) => (
-                    <svg
-                        key={i}
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill={i < testimonial.rating ? 'currentColor' : 'none'}
-                        stroke={i < testimonial.rating ? 'none' : 'currentColor'}
-                        className={`h-5 w-5 ${i < testimonial.rating ? 'text-primary' : 'text-gray-600'}`}
-                    >
-                        <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
-                    </svg>
-                ))}
-            </div>
-
-            {/* Quote */}
-            <p className="text-dark-text mb-6">"{testimonial.content}"</p>
-
-            {/* Person */}
-            <div className="flex items-center">
-                {testimonial.image ? (
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4">
-                        <Image
-                            src={testimonial.image}
-                            alt={testimonial.name}
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
-                ) : (
-                    <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-4">
-                        <span className="text-lg font-semibold">{testimonial.name.charAt(0)}</span>
-                    </div>
-                )}
-                <div>
-                    <h4 className="font-semibold text-dark-text">{testimonial.name}</h4>
-                    <p className="text-sm text-dark-textSecondary">{testimonial.role}</p>
+        <div className="bg-gray-900 rounded-xl p-6 shadow-md border border-gray-800 hover:border-amber-500/30 transition-all duration-300">
+            <div className="flex items-start mb-4">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden bg-amber-500/10 flex items-center justify-center">
+                    {image ? (
+                        <img src={image} alt={name} className="w-full h-full object-cover" />
+                    ) : (
+                        <span className="text-amber-500 font-semibold text-lg">{name.charAt(0)}</span>
+                    )}
                 </div>
+                <div className="ml-4">
+                    <h3 className="text-white font-semibold">{name}</h3>
+                    <p className="text-gray-400 text-sm">{role}</p>
+                </div>
+            </div>
+            <div className="relative">
+                <svg className="absolute top-0 left-0 w-8 h-8 text-amber-500/20 transform -translate-x-4 -translate-y-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                </svg>
+                <p className="text-gray-300 relative pl-6">
+                    {testimonial.replace(/"/g, '&quot;')}
+                </p>
             </div>
         </div>
     );

@@ -212,6 +212,7 @@ const AdminDashboardPage = () => {
                                     <h2 className="text-xl font-semibold text-dark-text">Pesanan Terbaru</h2>
                                     <a href="/admin/pesanan" className="text-primary hover:underline text-sm">Lihat Semua</a>
                                 </div>
+                                {/* // @ts-expect-error */}
                                 <RecentOrderList orders={recentOrders} />
                             </div>
                         </div>
@@ -233,6 +234,7 @@ const AdminDashboardPage = () => {
                                     <h2 className="text-xl font-semibold text-dark-text">Status Worker</h2>
                                     <a href="/admin/worker" className="text-primary hover:underline text-sm">Kelola Worker</a>
                                 </div>
+                                {/* // @ts-expect-error */}
                                 <WorkerAvailability workers={workers} />
                             </div>
                         </div>

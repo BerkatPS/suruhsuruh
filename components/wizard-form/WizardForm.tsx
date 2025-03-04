@@ -20,7 +20,7 @@ const WizardForm: React.FC = () => {
 
     const handleStep1Skip = () => {
         // Set default value for step1 and step2
-        // @ts-ignore
+        // @ts-expect-error
         setFormData(prev => ({
             ...prev,
             step1: { category: 'academic' }, // Default category when skipped
@@ -80,7 +80,7 @@ const WizardForm: React.FC = () => {
     };
 
     // Track progress percentage
-    const progressPercentage = ((currentStep - 1) / 3) * 100;
+    // const progressPercentage = ((currentStep - 1) / 3) * 100;
 
     return (
         <div className="bg-dark-card/80 rounded-xl shadow-lg p-8 border border-dark-border">
