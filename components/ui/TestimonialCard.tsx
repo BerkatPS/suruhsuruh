@@ -24,10 +24,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
                 ))}
             </div>
 
-            {/* Quote */}
-            <p className="text-dark-text mb-6">"{testimonial.content}"</p>
+            <p className="text-dark-text mb-6">{testimonial.content}</p>
 
-            {/* Person */}
             <div className="flex items-center">
                 {testimonial.image ? (
                     <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4">
