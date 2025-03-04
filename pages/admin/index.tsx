@@ -5,15 +5,50 @@ import RecentOrderList from '@/components/admin/RecentOrderList';
 import ActivityLog from '@/components/admin/ActivityLog';
 import WorkerAvailability from '@/components/admin/WorkerAvailability';
 
+// Define types for our data
+interface Stats {
+    totalOrders: number;
+    pendingOrders: number;
+    activeWorkers: number;
+    monthlyRevenue: number;
+}
+
+interface Order {
+    id: string;
+    customer: string;
+    service: string;
+    category: string;
+    status: 'pending' | 'processing' | 'completed' | 'cancelled';
+    amount: number;
+    date: string;
+}
+
+interface Activity {
+    id: number;
+    actor: string;
+    action: string;
+    target: string;
+    timestamp: string;
+}
+
+interface Worker {
+    id: number;
+    name: string;
+    specialty: string;
+    status: 'active' | 'busy' | 'offline';
+    assignedTasks: number;
+    completionRate: number;
+}
+
 // Fake data untuk demo
-const dummyStats = {
+const dummyStats: Stats = {
     totalOrders: 248,
     pendingOrders: 36,
     activeWorkers: 18,
     monthlyRevenue: 12500000
 };
 
-const dummyRecentOrders = [
+const dummyRecentOrders: Order[] = [
     {
         id: 'ORD-2023120001',
         customer: 'Budi Santoso',
@@ -61,7 +96,7 @@ const dummyRecentOrders = [
     }
 ];
 
-const dummyActivities = [
+const dummyActivities: Activity[] = [
     {
         id: 1,
         actor: 'Admin',
@@ -99,7 +134,7 @@ const dummyActivities = [
     }
 ];
 
-const dummyWorkers = [
+const dummyWorkers: Worker[] = [
     { id: 1, name: 'Dimas Prayoga', specialty: 'Skripsi', status: 'active', assignedTasks: 3, completionRate: 95 },
     { id: 2, name: 'Andi Firmansyah', specialty: 'Makalah', status: 'active', assignedTasks: 2, completionRate: 98 },
     { id: 3, name: 'Ratna Dewi', specialty: 'Presentasi', status: 'active', assignedTasks: 1, completionRate: 90 },
@@ -109,10 +144,10 @@ const dummyWorkers = [
 
 const AdminDashboardPage = () => {
     // State untuk menyimpan stats
-    const [stats, setStats] = useState(dummyStats);
-    const [recentOrders, setRecentOrders] = useState(dummyRecentOrders);
-    const [activities, setActivities] = useState(dummyActivities);
-    const [workers, setWorkers] = useState(dummyWorkers);
+    const [stats, setStats] = useState<Stats>(dummyStats);
+    const [recentOrders, setRecentOrders] = useState<Order[]>(dummyRecentOrders);
+    const [activities, setActivities] = useState<Activity[]>(dummyActivities);
+    const [workers, setWorkers] = useState<Worker[]>(dummyWorkers);
     const [isLoading, setIsLoading] = useState(true);
 
     // Fetch data saat component mount
@@ -155,7 +190,7 @@ const AdminDashboardPage = () => {
         <AdminLayout title="Dashboard">
             {isLoading ? (
                 <div className="flex justify-center items-center h-64">
-                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-500"></div>
                 </div>
             ) : (
                 <>
@@ -207,21 +242,20 @@ const AdminDashboardPage = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         {/* Recent Orders */}
                         <div className="lg:col-span-2">
-                            <div className="bg-dark-card border border-dark-border rounded-xl shadow-sm p-6">
+                            <div className="bg-gray-900 border border-gray-800 rounded-xl shadow-sm p-6">
                                 <div className="flex items-center justify-between mb-6">
-                                    <h2 className="text-xl font-semibold text-dark-text">Pesanan Terbaru</h2>
-                                    <a href="/admin/pesanan" className="text-primary hover:underline text-sm">Lihat Semua</a>
+                                    <h2 className="text-xl font-semibold text-white">Pesanan Terbaru</h2>
+                                    <a href="/admin/pesanan" className="text-amber-500 hover:underline text-sm">Lihat Semua</a>
                                 </div>
-                                {/* // @ts-expect-error */}
                                 <RecentOrderList orders={recentOrders} />
                             </div>
                         </div>
 
                         {/* Activity Log */}
                         <div>
-                            <div className="bg-dark-card border border-dark-border rounded-xl shadow-sm p-6">
+                            <div className="bg-gray-900 border border-gray-800 rounded-xl shadow-sm p-6">
                                 <div className="flex items-center justify-between mb-6">
-                                    <h2 className="text-xl font-semibold text-dark-text">Aktivitas Terbaru</h2>
+                                    <h2 className="text-xl font-semibold text-white">Aktivitas Terbaru</h2>
                                 </div>
                                 <ActivityLog activities={activities} />
                             </div>
@@ -229,12 +263,11 @@ const AdminDashboardPage = () => {
 
                         {/* Worker Availability */}
                         <div className="lg:col-span-3">
-                            <div className="bg-dark-card border border-dark-border rounded-xl shadow-sm p-6">
+                            <div className="bg-gray-900 border border-gray-800 rounded-xl shadow-sm p-6">
                                 <div className="flex items-center justify-between mb-6">
-                                    <h2 className="text-xl font-semibold text-dark-text">Status Worker</h2>
-                                    <a href="/admin/worker" className="text-primary hover:underline text-sm">Kelola Worker</a>
+                                    <h2 className="text-xl font-semibold text-white">Status Worker</h2>
+                                    <a href="/admin/worker" className="text-amber-500 hover:underline text-sm">Kelola Worker</a>
                                 </div>
-                                {/* // @ts-expect-error */}
                                 <WorkerAvailability workers={workers} />
                             </div>
                         </div>
