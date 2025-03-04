@@ -113,7 +113,7 @@ const AdminDashboardPage = () => {
     const [recentOrders, setRecentOrders] = useState(dummyRecentOrders);
     const [activities, setActivities] = useState(dummyActivities);
     const [workers, setWorkers] = useState(dummyWorkers);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     // Fetch data saat component mount
     useEffect(() => {
@@ -154,93 +154,93 @@ const AdminDashboardPage = () => {
     return (
         <AdminLayout title="Dashboard">
             {isLoading ? (
-                    <div className="flex justify-center items-center h-64">
+                <div className="flex justify-center items-center h-64">
                     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-                        </div>
-                ) : (
-                    <>
-                        {/* Status Cards */}
+                </div>
+            ) : (
+                <>
+                    {/* Status Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <StatCard
-                    title="Total Pesanan"
-                value={stats.totalOrders.toString()}
-                icon={(
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                </svg>
-    )}
-    color="blue"
-    />
-    <StatCard
-        title="Pesanan Pending"
-    value={stats.pendingOrders.toString()}
-    icon={(
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-)}
-    color="amber"
-    />
-    <StatCard
-        title="Worker Aktif"
-    value={stats.activeWorkers.toString()}
-    icon={(
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-)}
-    color="green"
-    />
-    <StatCard
-        title="Pendapatan Bulan Ini"
-    value={formatRupiah(stats.monthlyRevenue)}
-    icon={(
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-)}
-    color="purple"
-        />
-        </div>
+                        <StatCard
+                            title="Total Pesanan"
+                            value={stats.totalOrders.toString()}
+                            icon={(
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                </svg>
+                            )}
+                            color="blue"
+                        />
+                        <StatCard
+                            title="Pesanan Pending"
+                            value={stats.pendingOrders.toString()}
+                            icon={(
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            )}
+                            color="amber"
+                        />
+                        <StatCard
+                            title="Worker Aktif"
+                            value={stats.activeWorkers.toString()}
+                            icon={(
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            )}
+                            color="green"
+                        />
+                        <StatCard
+                            title="Pendapatan Bulan Ini"
+                            value={formatRupiah(stats.monthlyRevenue)}
+                            icon={(
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            )}
+                            color="purple"
+                        />
+                    </div>
 
-    {/* Content Sections */}
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Recent Orders */}
-        <div className="lg:col-span-2">
-    <div className="bg-dark-card border border-dark-border rounded-xl shadow-sm p-6">
-    <div className="flex items-center justify-between mb-6">
-    <h2 className="text-xl font-semibold text-dark-text">Pesanan Terbaru</h2>
-    <a href="/admin/pesanan" className="text-primary hover:underline text-sm">Lihat Semua</a>
-    </div>
-    <RecentOrderList orders={recentOrders} />
-    </div>
-    </div>
+                    {/* Content Sections */}
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        {/* Recent Orders */}
+                        <div className="lg:col-span-2">
+                            <div className="bg-dark-card border border-dark-border rounded-xl shadow-sm p-6">
+                                <div className="flex items-center justify-between mb-6">
+                                    <h2 className="text-xl font-semibold text-dark-text">Pesanan Terbaru</h2>
+                                    <a href="/admin/pesanan" className="text-primary hover:underline text-sm">Lihat Semua</a>
+                                </div>
+                                <RecentOrderList orders={recentOrders} />
+                            </div>
+                        </div>
 
-    {/* Activity Log */}
-    <div>
-        <div className="bg-dark-card border border-dark-border rounded-xl shadow-sm p-6">
-    <div className="flex items-center justify-between mb-6">
-    <h2 className="text-xl font-semibold text-dark-text">Aktivitas Terbaru</h2>
-    </div>
-    <ActivityLog activities={activities} />
-    </div>
-    </div>
+                        {/* Activity Log */}
+                        <div>
+                            <div className="bg-dark-card border border-dark-border rounded-xl shadow-sm p-6">
+                                <div className="flex items-center justify-between mb-6">
+                                    <h2 className="text-xl font-semibold text-dark-text">Aktivitas Terbaru</h2>
+                                </div>
+                                <ActivityLog activities={activities} />
+                            </div>
+                        </div>
 
-    {/* Worker Availability */}
-    <div className="lg:col-span-3">
-    <div className="bg-dark-card border border-dark-border rounded-xl shadow-sm p-6">
-    <div className="flex items-center justify-between mb-6">
-    <h2 className="text-xl font-semibold text-dark-text">Status Worker</h2>
-    <a href="/admin/worker" className="text-primary hover:underline text-sm">Kelola Worker</a>
-    </div>
-    <WorkerAvailability workers={workers} />
-    </div>
-    </div>
-    </div>
-    </>
-)}
-    </AdminLayout>
-);
+                        {/* Worker Availability */}
+                        <div className="lg:col-span-3">
+                            <div className="bg-dark-card border border-dark-border rounded-xl shadow-sm p-6">
+                                <div className="flex items-center justify-between mb-6">
+                                    <h2 className="text-xl font-semibold text-dark-text">Status Worker</h2>
+                                    <a href="/admin/worker" className="text-primary hover:underline text-sm">Kelola Worker</a>
+                                </div>
+                                <WorkerAvailability workers={workers} />
+                            </div>
+                        </div>
+                    </div>
+                </>
+            )}
+        </AdminLayout>
+    );
 };
 
 export default AdminDashboardPage;
