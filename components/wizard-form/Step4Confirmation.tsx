@@ -26,7 +26,7 @@ interface ElectronicServiceDetails {
 type ServiceDetails = AcademicServiceDetails | ElectronicServiceDetails;
 
 // Enhance CompleteFormData type to include detailed step types
-// @ts-expect-error
+// @ts-expect-error - CompleteFormData mungkin tidak sepenuhnya kompatibel dengan ekstensi yang kita buat
 interface EnhancedFormData extends CompleteFormData {
     step2: ServiceDetails;
 }
