@@ -1,0 +1,199 @@
+/* Tailwind Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Variables */
+:root {
+  --dark-blue: #1f212f;
+  --orange: #fa8029;
+  --light-gray: #1e1e24;
+  --white: #e0e0e0;
+
+  color-scheme: dark;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: #e0e0e0;
+  background-color: #121212;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(160, 160, 160, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--orange);
+}
+
+/* Animations and Transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Hover Effects */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+/* Custom Form Elements */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--orange);
+  outline-offset: 0;
+}
+
+/* Custom Classes */
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-dark-text px-6 py-2 rounded font-semibold hover:bg-primary-dark transition-colors shadow-button;
+  }
+
+  .btn-secondary {
+    @apply bg-dark-card text-dark-text px-6 py-2 rounded font-semibold hover:bg-dark-border transition-colors;
+  }
+
+  .btn-outline {
+    @apply border border-gray-600 text-gray-300 px-6 py-2 rounded font-semibold hover:bg-dark-border/30 transition-colors;
+  }
+
+  .btn-ghost {
+    @apply text-gray-300 hover:bg-dark-border/20 px-6 py-2 rounded font-semibold transition-colors;
+  }
+
+  .card {
+    @apply bg-dark-card rounded-xl shadow-card p-6 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:shadow-lg hover:-translate-y-1 cursor-pointer;
+  }
+
+  .section {
+    @apply py-12 md:py-20;
+  }
+
+  .section-title {
+    @apply text-center mb-12;
+  }
+
+  .section-title h2 {
+    @apply text-3xl md:text-4xl font-bold mb-4 text-dark-text;
+  }
+
+  .section-title p {
+    @apply text-lg text-dark-textSecondary max-w-3xl mx-auto;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg border border-dark-border focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary bg-dark-card text-dark-text;
+  }
+
+  .form-label {
+    @apply block mb-2 text-sm font-medium text-gray-300;
+  }
+
+  /* Progress Indicator */
+  .progress-indicator {
+    @apply flex items-center justify-between w-full max-w-3xl mx-auto mb-10;
+  }
+
+  .progress-step {
+    @apply w-8 h-8 rounded-full flex items-center justify-center text-sm relative z-10 font-medium;
+    transition: all 0.3s ease;
+  }
+
+  .progress-step.active {
+    @apply bg-primary text-dark-text;
+  }
+
+  .progress-step.completed {
+    @apply bg-primary text-dark-text;
+  }
+
+  .progress-step.incomplete {
+    @apply bg-gray-700 text-gray-400;
+  }
+
+  .progress-line {
+    @apply flex-1 h-1 bg-gray-700;
+  }
+
+  .progress-line.active {
+    @apply bg-primary;
+  }
+
+  /* Wizard Steps */
+  .wizard-step {
+    @apply opacity-0 scale-95 absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .wizard-step.active {
+    @apply opacity-100 scale-100 static;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .section-padding {
+    @apply py-12;
+  }
+}
