@@ -487,11 +487,7 @@ const WarrantyPage: React.FC = () => {
                                                         </div>
 
                                                         <div className="flex items-center gap-3 mt-3">
-                                                            <img
-                                                                src={request.customer.avatar}
-                                                                alt={request.customer.name}
-                                                                className="h-8 w-8 rounded-full"
-                                                            />
+
                                                             <span className="text-sm">{request.customer.name}</span>
                                                         </div>
 
@@ -505,11 +501,7 @@ const WarrantyPage: React.FC = () => {
                                                             <div className="mt-3 flex gap-2">
                                                                 {request.photos.slice(0, 3).map((photo, idx) => (
                                                                     <div key={idx} className="h-16 w-16 bg-lightGray rounded-md overflow-hidden border border-dark-border">
-                                                                        <img
-                                                                            src={photo}
-                                                                            alt={`Issue photo ${idx + 1}`}
-                                                                            className="h-full w-full object-cover"
-                                                                        />
+
                                                                     </div>
                                                                 ))}
                                                                 {request.photos.length > 3 && (
@@ -645,11 +637,7 @@ const WarrantyPage: React.FC = () => {
                                                         </div>
 
                                                         <div className="flex items-center gap-3 mt-3">
-                                                            <img
-                                                                src={item.customer.avatar}
-                                                                alt={item.customer.name}
-                                                                className="h-8 w-8 rounded-full"
-                                                            />
+
                                                             <span className="text-sm">{item.customer.name}</span>
                                                         </div>
 
@@ -840,11 +828,7 @@ const WarrantyPage: React.FC = () => {
                                     <div className="bg-lightGray rounded-lg p-3 border border-dark-border">
                                         <h5 className="text-xs text-dark-textSecondary">Pelanggan</h5>
                                         <div className="flex items-center gap-3 mt-2">
-                                            <img
-                                                src={activeRequest.customer.avatar}
-                                                alt={activeRequest.customer.name}
-                                                className="h-10 w-10 rounded-full"
-                                            />
+
                                             <div>
                                                 <p className="font-medium">{activeRequest.customer.name}</p>
                                                 <p className="text-dark-textSecondary text-xs">{activeRequest.customer.email}</p>
@@ -878,11 +862,7 @@ const WarrantyPage: React.FC = () => {
                                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                                                 {activeRequest.photos.map((photo, idx) => (
                                                     <div key={idx} className="aspect-square bg-lightGray rounded-lg overflow-hidden border border-dark-border">
-                                                        <img
-                                                            src={photo}
-                                                            alt={`Issue photo ${idx + 1}`}
-                                                            className="h-full w-full object-cover"
-                                                        />
+
                                                     </div>
                                                 ))}
                                             </div>

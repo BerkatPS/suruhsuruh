@@ -14,8 +14,6 @@ import {
     User,
     ChevronDown,
     ShoppingBag,
-    ChevronRight,
-    Home
 } from 'lucide-react';
 
 interface SidebarProps {

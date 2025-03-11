@@ -135,11 +135,7 @@ export default function ProgressGallery({ progressUpdates }: ProgressGalleryProp
                                         <div className="absolute inset-0 flex items-center justify-center text-dark-textSecondary">
                                             <FileImage className="h-6 w-6" />
                                         </div>
-                                        <img
-                                            src={image.url}
-                                            alt={image.alt}
-                                            className="w-full h-full object-cover"
-                                        />
+
                                     </div>
                                 ))}
                             </div>
@@ -160,12 +156,7 @@ export default function ProgressGallery({ progressUpdates }: ProgressGalleryProp
                     >
                         <X className="h-6 w-6" />
                     </button>
-                    <img
-                        src={activeImage}
-                        alt="Enlarged view"
-                        className="max-w-full max-h-full object-contain"
-                        onClick={(e) => e.stopPropagation()}
-                    />
+
                 </div>
             )}
         </div>

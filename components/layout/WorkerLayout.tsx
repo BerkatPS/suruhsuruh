@@ -236,10 +236,8 @@ const WorkerLayout: React.FC<WorkerLayoutProps> = ({ children }) => {
                                 }}
                             >
                                 <div className="relative">
-                                    <img
-                                        alt="User"
-                                        className="h-10 w-10 rounded-full border-2 border-primary"
-                                    />
+
+
                                     <span className="absolute bottom-0 right-0 h-3 w-3 bg-green-500 rounded-full border-2 border-secondary"></span>
                                 </div>
                                 <div className="hidden md:block">
@@ -256,10 +254,7 @@ const WorkerLayout: React.FC<WorkerLayoutProps> = ({ children }) => {
                                 <div className="absolute right-0 mt-2 w-52 bg-dark-card rounded-xl shadow-card border border-dark-border overflow-hidden">
                                     <div className="p-4 border-b border-dark-border text-center">
                                         <div className="flex justify-center">
-                                            <img
-                                                alt="User"
-                                                className="h-16 w-16 rounded-full border-2 border-primary"
-                                            />
+
                                         </div>
                                         <h3 className="font-medium mt-2">Budi Setiawan</h3>
                                         <p className="text-dark-textSecondary text-xs">budi.setiawan@email.com</p>
@@ -342,10 +337,7 @@ const WorkerLayout: React.FC<WorkerLayoutProps> = ({ children }) => {
 
                 <div className="p-4">
                     <div className="flex items-center gap-3 p-3 bg-lightGray rounded-lg">
-                        <img
-                            alt="User"
-                            className="h-10 w-10 rounded-full border-2 border-primary"
-                        />
+
                         <div>
                             <h3 className="font-medium">Budi Setiawan</h3>
                             <p className="text-dark-textSecondary text-xs">Teknisi</p>
