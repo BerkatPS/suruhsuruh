@@ -110,7 +110,7 @@ const RecentOrderList: React.FC<RecentOrderListProps> = ({ orders }) => {
                         </td>
                         <td className="px-3 py-4 whitespace-nowrap text-sm text-right">
                             <Link
-                                href={`/admin/pesanan/${order.id}`}
+                                href={`/app/admin/pesanan/${order.id}`}
                                 className="text-primary hover:text-primary-light font-medium"
                             >
                                 Detail

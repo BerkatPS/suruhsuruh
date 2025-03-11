@@ -1,7 +1,8 @@
+"use client";
 import { ReactNode, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { siteConfig } from '@/config/site';
 
 interface AdminLayoutProps {
@@ -10,7 +11,6 @@ interface AdminLayoutProps {
 }
 
 const AdminLayout = ({ children, title = 'Dashboard Admin' }: AdminLayoutProps) => {
-    const router = useRouter();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const pageTitle = `${title} | ${siteConfig.name}`;
@@ -26,7 +26,6 @@ const AdminLayout = ({ children, title = 'Dashboard Admin' }: AdminLayoutProps) 
                 </svg>
             ),
             href: '/admin',
-            active: router.pathname === '/admin'
         },
         {
             title: 'Pesanan',
@@ -37,7 +36,6 @@ const AdminLayout = ({ children, title = 'Dashboard Admin' }: AdminLayoutProps) 
                 </svg>
             ),
             href: '/admin/pesanan',
-            active: router.pathname.startsWith('/admin/pesanan')
         },
         {
             title: 'Worker',
@@ -47,7 +45,6 @@ const AdminLayout = ({ children, title = 'Dashboard Admin' }: AdminLayoutProps) 
                 </svg>
             ),
             href: '/admin/worker',
-            active: router.pathname.startsWith('/admin/worker')
         },
         {
             title: 'Keuangan',
@@ -57,7 +54,6 @@ const AdminLayout = ({ children, title = 'Dashboard Admin' }: AdminLayoutProps) 
                 </svg>
             ),
             href: '/admin/keuangan',
-            active: router.pathname.startsWith('/admin/keuangan')
         },
         {
             title: 'Pengguna',
@@ -67,7 +63,6 @@ const AdminLayout = ({ children, title = 'Dashboard Admin' }: AdminLayoutProps) 
                 </svg>
             ),
             href: '/admin/pengguna',
-            active: router.pathname.startsWith('/admin/pengguna')
         },
         {
             title: 'Pengaturan',
@@ -77,7 +72,6 @@ const AdminLayout = ({ children, title = 'Dashboard Admin' }: AdminLayoutProps) 
                 </svg>
             ),
             href: '/admin/pengaturan',
-            active: router.pathname.startsWith('/admin/pengaturan')
         }
     ];
 
@@ -123,11 +117,7 @@ const AdminLayout = ({ children, title = 'Dashboard Admin' }: AdminLayoutProps) 
                                     <li key={index}>
                                         <Link
                                             href={item.href}
-                                            className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                                                item.active
-                                                    ? 'bg-amber-500/20 text-amber-500'
-                                                    : 'text-gray-300 hover:bg-amber-500/20 hover:text-amber-500'
-                                            }`}
+                                            className="flex items-center space-x-3 py-2 px-4 rounded-md text-gray-200 hover:bg-amber-500/10 hover:text-amber-500 transition-colors"
                                         >
                                             {item.icon}
                                             <span>{item.title}</span>
@@ -149,16 +139,7 @@ const AdminLayout = ({ children, title = 'Dashboard Admin' }: AdminLayoutProps) 
                                 </div>
                             </div>
                             <div className="mt-4">
-                                <Link
-                                    href="/logout"
-                                    className="flex items-center space-x-2 text-gray-400 hover:text-amber-500 transition-colors"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V7.414a1 1 0 00-.293-.707L11.414 2.414A1 1 0 0010.707 2H4a1 1 0 00-1 1zm9 2.5V5a.5.5 0 01.5-.5h2a.5.5 0 01.5.5v2a.5.5 0 01-.5.5h-2a.5.5 0 01-.5-.5V7l-9 4.5V15a1 1 0 001 1h12a1 1 0 001-1V6.5L12 5.5z" clipRule="evenodd" />
-                                        <path d="M3 14a1 1 0 011-1h2a1 1 0 110 2H4a1 1 0 01-1-1z" />
-                                    </svg>
-                                    <span>Keluar</span>
-                                </Link>
+
                             </div>
                         </div>
                     </div>

@@ -1,9 +1,13 @@
-import { useState, useEffect } from 'react';
+"use client"
+
 import AdminLayout from '@/components/admin/AdminLayout';
 import StatCard from '@/components/admin/StatCard';
 import RecentOrderList from '@/components/admin/RecentOrderList';
 import ActivityLog from '@/components/admin/ActivityLog';
 import WorkerAvailability from '@/components/admin/WorkerAvailability';
+import {useEffect, useState} from "react";
+
+
 
 // Define types for our data
 interface Stats {

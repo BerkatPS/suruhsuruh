@@ -1,6 +1,8 @@
+"use client";
 // pages/admin/pesanan/[id].tsx
+
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import AdminLayout from '@/components/admin/AdminLayout';
 
 // Tipe untuk data order
@@ -86,8 +88,6 @@ const dummyAvailableWorkers: Worker[] = [
 
 export default function OrderDetail() {
     const router = useRouter();
-    const { id } = router.query;
-
     const [order, setOrder] = useState<Order | null>(null);
     const [availableWorkers] = useState<Worker[]>(dummyAvailableWorkers);
     const [isLoading, setIsLoading] = useState(true);
@@ -115,10 +115,8 @@ export default function OrderDetail() {
             }
         };
 
-        if (id) {
-            fetchOrderDetail();
-        }
-    }, [id]);
+
+    }, []);
 
     // Format tanggal
     const formatDate = (dateString: string) => {

@@ -1,4 +1,5 @@
 // components/admin/WorkerAvailability.tsx
+"use client"
 import React, { useState } from 'react';
 
 interface Worker {

@@ -11,7 +11,7 @@ const FAQ = () => {
         : faqs.filter(faq => faq.category === activeCategory);
 
     return (
-        <section id="faq" className="section bg-dark-card">
+        <section id="faq" className="section ">
             <div className="container-custom">
                 <div className="section-title">
                     <h2>Pertanyaan Umum</h2>

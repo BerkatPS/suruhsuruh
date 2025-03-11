@@ -41,13 +41,50 @@ export interface CompleteFormData {
     step3: ContactFormData;
 }
 
-// Services
+// Service Pricing Structure
+export interface ServicePricing {
+    value: number;
+    unit?: string;
+    startingFrom?: boolean;
+    negotiable?: boolean;
+    note?: string;
+}
+
+// Package Structure
+export interface ServicePackage {
+    name: string;
+    description: string;
+    monthlyPrice: number;
+    yearlyPrice?: number;
+    regularPrice?: number; // For showing discounted price comparisons
+    billingNote?: string;
+    features: string[];
+    highlighted?: boolean; // For highlighting the recommended package
+}
+
+// Service Structure for Modal
 export interface ServiceItem {
     id: string;
     title: string;
     description: string;
+    fullDescription?: string; // Detailed description for modal
     icon: string;
     category: ServiceCategory;
+    features?: string[]; // List of service features
+    pricing?: ServicePricing; // Basic pricing information (used if packages are not defined)
+    packages?: ServicePackage[]; // Different service tiers/packages
+    pricingNote?: string; // Additional pricing notes
+    terms?: string[]; // Service terms and conditions
+
+    // Academic-specific fields
+    documents?: string[]; // Types of documents handled
+    subjects?: string[]; // Academic subjects covered
+    educationLevels?: string[]; // Education levels supported
+
+    // Electronic-specific fields
+    devices?: string[]; // Types of devices repaired
+    issueTypes?: string[]; // Types of issues handled
+    brands?: string[]; // Brands supported
 }
 
 export interface ServiceFeature {

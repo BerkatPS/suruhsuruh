@@ -31,7 +31,7 @@ const Header = () => {
                 {/* Logo */}
                 <Link href="/" className="flex items-center z-10">
           <span className="text-2xl font-bold font-display text-dark-text transition-colors duration-300">
-            suruh<span className="text-primary">suruh</span>
+            suruh<span className="text-primary">suruh.id</span>
           </span>
                 </Link>
 

@@ -12,7 +12,7 @@ const Footer = () => {
                     <div className="lg:col-span-2">
                         <Link href="/" className="inline-block mb-6">
                             <span className="text-2xl font-bold font-display">
-                                suruh<span className="text-primary">suruh</span>
+                                suruh<span className="text-primary">suruh.id</span>
                             </span>
                         </Link>
                         <p className="text-dark-textSecondary mb-6 max-w-md">
